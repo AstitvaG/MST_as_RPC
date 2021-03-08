@@ -4,7 +4,8 @@
 
 struct mpc_struct{
     char oper[10];
-    int args[4];
+    int graph_id;
+    int args[3];
 };
 
 /*Programme, version and procedure definition*/

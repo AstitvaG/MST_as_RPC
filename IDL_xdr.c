@@ -16,17 +16,20 @@ xdr_mpc_struct (XDR *xdrs, mpc_struct *objp)
 		 if (!xdr_vector (xdrs, (char *)objp->oper, 10,
 			sizeof (char), (xdrproc_t) xdr_char))
 			 return FALSE;
-		buf = XDR_INLINE (xdrs, ( 4 ) * BYTES_PER_XDR_UNIT);
+		buf = XDR_INLINE (xdrs, (1 +  3 )* BYTES_PER_XDR_UNIT);
 		if (buf == NULL) {
-			 if (!xdr_vector (xdrs, (char *)objp->args, 4,
+			 if (!xdr_int (xdrs, &objp->graph_id))
+				 return FALSE;
+			 if (!xdr_vector (xdrs, (char *)objp->args, 3,
 				sizeof (int), (xdrproc_t) xdr_int))
 				 return FALSE;
 		} else {
+			IXDR_PUT_LONG(buf, objp->graph_id);
 			{
 				register int *genp;
 
 				for (i = 0, genp = objp->args;
-					i < 4; ++i) {
+					i < 3; ++i) {
 					IXDR_PUT_LONG(buf, *genp++);
 				}
 			}
@@ -36,17 +39,20 @@ xdr_mpc_struct (XDR *xdrs, mpc_struct *objp)
 		 if (!xdr_vector (xdrs, (char *)objp->oper, 10,
 			sizeof (char), (xdrproc_t) xdr_char))
 			 return FALSE;
-		buf = XDR_INLINE (xdrs, ( 4 ) * BYTES_PER_XDR_UNIT);
+		buf = XDR_INLINE (xdrs, (1 +  3 )* BYTES_PER_XDR_UNIT);
 		if (buf == NULL) {
-			 if (!xdr_vector (xdrs, (char *)objp->args, 4,
+			 if (!xdr_int (xdrs, &objp->graph_id))
+				 return FALSE;
+			 if (!xdr_vector (xdrs, (char *)objp->args, 3,
 				sizeof (int), (xdrproc_t) xdr_int))
 				 return FALSE;
 		} else {
+			objp->graph_id = IXDR_GET_LONG(buf);
 			{
 				register int *genp;
 
 				for (i = 0, genp = objp->args;
-					i < 4; ++i) {
+					i < 3; ++i) {
 					*genp++ = IXDR_GET_LONG(buf);
 				}
 			}
@@ -57,7 +63,9 @@ xdr_mpc_struct (XDR *xdrs, mpc_struct *objp)
 	 if (!xdr_vector (xdrs, (char *)objp->oper, 10,
 		sizeof (char), (xdrproc_t) xdr_char))
 		 return FALSE;
-	 if (!xdr_vector (xdrs, (char *)objp->args, 4,
+	 if (!xdr_int (xdrs, &objp->graph_id))
+		 return FALSE;
+	 if (!xdr_vector (xdrs, (char *)objp->args, 3,
 		sizeof (int), (xdrproc_t) xdr_int))
 		 return FALSE;
 	return TRUE;

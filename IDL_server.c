@@ -9,32 +9,34 @@
 void *
 add_graph_6_svc(mpc_struct *argp, struct svc_req *rqstp)
 {
-	static char * result;
-
+	static char *result;
+	printf("add graph called");
 	/*
 	 * insert server code here
 	 */
 
-	return (void *) &result;
+	return (void *)&result;
 }
 
 void *
 add_egde_6_svc(mpc_struct *argp, struct svc_req *rqstp)
 {
-	static char * result;
+	static char *result;
 
+	printf("add edge called");
 	/*
 	 * insert server code here
 	 */
 
-	return (void *) &result;
+	return (void *)&result;
 }
 
 long *
 get_mst_6_svc(mpc_struct *argp, struct svc_req *rqstp)
 {
-	static long  result;
+	static long result;
 
+	printf("get mst called");
 	/*
 	 * insert server code here
 	 */
