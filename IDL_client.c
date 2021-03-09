@@ -46,6 +46,7 @@ int compute_6(char *host, mpc_struct struct_args, int type)
 		clnt_destroy(clnt);
 		return *result_3;
 	}
+	else return 0;
 }
 
 int main(int argc, char *argv[])
