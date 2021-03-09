@@ -3,7 +3,7 @@
 /*Structure to hold the values to be used in computation*/
 
 struct mpc_struct{
-    int graph_id;
+    char graph_id[10];
     int args[3];
 };
 

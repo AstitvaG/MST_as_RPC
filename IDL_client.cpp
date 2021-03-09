@@ -46,8 +46,8 @@ int main(int argc, char *argv[])
 {
 	char *host;
 	host = argv[1];
-	string oper;
-	int graph_id, type = 0, args[3] = {};
+	string oper, graph_id;
+	int type = 0, args[3] = {};
 
 	printf("Started client server...\n");
 
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 
 		mpc_struct struct_args;
 		memcpy(struct_args.args, args, sizeof(args));
-		struct_args.graph_id = graph_id;
+		memcpy(struct_args.graph_id, graph_id.c_str(), sizeof(graph_id.c_str()));
 		compute_6(host, struct_args, type);
 	}
 	exit(0);

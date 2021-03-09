@@ -15,7 +15,7 @@ extern "C" {
 
 
 struct mpc_struct {
-	int graph_id;
+	char graph_id[10];
 	int args[3];
 };
 typedef struct mpc_struct mpc_struct;
