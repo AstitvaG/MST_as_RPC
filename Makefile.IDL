@@ -12,12 +12,12 @@ SOURCES_SVC.c =
 SOURCES_SVC.h = 
 SOURCES.x = IDL.x
 
-TARGETS_SVC.c = IDL_svc.c IDL_server.c IDL_xdr.c 
-TARGETS_CLNT.c = IDL_clnt.c IDL_client.c IDL_xdr.c 
-TARGETS = IDL.h IDL_xdr.c IDL_clnt.c IDL_svc.c IDL_client.c IDL_server.c
+TARGETS_SVC.c = IDL_svc.cpp IDL_server.cpp IDL_xdr.cpp 
+TARGETS_CLNT.c = IDL_clnt.cpp IDL_client.cpp IDL_xdr.cpp 
+TARGETS = IDL.h IDL_xdr.cpp IDL_clnt.cpp IDL_svc.cpp IDL_client.cpp IDL_server.cpp
 
-OBJECTS_CLNT = $(SOURCES_CLNT.c:%.c=%.o) $(TARGETS_CLNT.c:%.c=%.o)
-OBJECTS_SVC = $(SOURCES_SVC.c:%.c=%.o) $(TARGETS_SVC.c:%.c=%.o)
+OBJECTS_CLNT = $(SOURCES_CLNT.c:%.cpp=%.o) $(TARGETS_CLNT.c:%.cpp=%.o)
+OBJECTS_SVC = $(SOURCES_SVC.c:%.cpp=%.o) $(TARGETS_SVC.c:%.cpp=%.o)
 # Compiler flags 
 CC = g++
 CFLAGS += -g 
