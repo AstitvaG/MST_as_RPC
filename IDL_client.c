@@ -27,7 +27,6 @@ int compute_6(char *host, mpc_struct struct_args, int type)
 		result_1 = add_graph_6(&struct_args, clnt);
 		if (result_1 == (void *)NULL)
 			clnt_perror(clnt, "call failed");
-		printf("Added graph!");
 		clnt_destroy(clnt);
 		return 0;
 	}
@@ -36,7 +35,6 @@ int compute_6(char *host, mpc_struct struct_args, int type)
 		result_2 = add_egde_6(&struct_args, clnt);
 		if (result_2 == (void *)NULL)
 			clnt_perror(clnt, "call failed");
-		printf('Added edge!');
 		clnt_destroy(clnt);
 		return 0;
 	}
@@ -45,53 +43,49 @@ int compute_6(char *host, mpc_struct struct_args, int type)
 		result_3 = get_mst_6(&struct_args, clnt);
 		if (result_3 == (long *)NULL)
 			clnt_perror(clnt, "call failed");
-		printf('Got result: ',*result_3);
 		clnt_destroy(clnt);
 		return *result_3;
 	}
 }
 
-
 int main(int argc, char *argv[])
 {
 	char *host;
 	host = argv[1];
-	while (1)
+	char oper[10];
+	int graph_id, type = 0, args[3] = {};
+
+	printf("Started client server...\n");
+	scanf("%s", oper);
+	scanf("%d", &graph_id);
+	printf("reached here\n");
+	fflush(stdout);
+	if (!strcmp(oper, "add_graph"))
 	{
-		char *oper;
-		int graph_id, type = 0, args[3] = {};
-
-		printf("Started client server...\n");
-		scanf("%s", &oper);
-		scanf("%d", &graph_id);
-		if (oper == "add_graph")
-		{
-			scanf("%d", &args[0]);
-			type = 1;
-		}
-		else if (oper == "add_edge")
-		{
-			type = 2;
-			scanf("%d", &args[0]);
-			scanf("%d", &args[1]);
-			scanf("%d", &args[2]);
-		}
-		else if (oper == "exit")
-			exit(0);
-		else if (oper != "get_mst")
-		{
-			printf("Only allowed operations are:\n\tadd_graph\n\tadd_edge\n\tget_mst\n\texit");
-			continue;
-		}
-		else
-			type = 3;
-
-		mpc_struct struct_args;
-		memcpy(struct_args.args, args, sizeof(args));
-		strcpy(struct_args.oper, oper);
-		struct_args.graph_id = graph_id;
-
-		printf("Answer= %f\n", compute_6(host, struct_args, type));
+		scanf("%d", &args[0]);
+		type = 1;
 	}
+	else if (!strcmp(oper, "add_edge"))
+	{
+		type = 2;
+		scanf("%d", &args[0]);
+		scanf("%d", &args[1]);
+		scanf("%d", &args[2]);
+	}
+	else if (!strcmp(oper, "exit"))
+		exit(0);
+	else if (!strcmp(oper, "get_mst"))
+		type = 3;
+	else
+	{
+		printf("Only allowed operations are:\n\tadd_graph\n\tadd_edge\n\tget_mst\n\texit");
+		exit(0);
+	}
+
+	mpc_struct struct_args;
+	memcpy(struct_args.args, args, sizeof(args));
+	struct_args.graph_id = graph_id;
+
+	printf("Answer= %d\n", compute_6(host, struct_args, type));
 	exit(0);
 }

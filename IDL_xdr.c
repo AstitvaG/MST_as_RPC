@@ -13,9 +13,6 @@ xdr_mpc_struct (XDR *xdrs, mpc_struct *objp)
 	int i;
 
 	if (xdrs->x_op == XDR_ENCODE) {
-		 if (!xdr_vector (xdrs, (char *)objp->oper, 10,
-			sizeof (char), (xdrproc_t) xdr_char))
-			 return FALSE;
 		buf = XDR_INLINE (xdrs, (1 +  3 )* BYTES_PER_XDR_UNIT);
 		if (buf == NULL) {
 			 if (!xdr_int (xdrs, &objp->graph_id))
@@ -36,9 +33,6 @@ xdr_mpc_struct (XDR *xdrs, mpc_struct *objp)
 		}
 		return TRUE;
 	} else if (xdrs->x_op == XDR_DECODE) {
-		 if (!xdr_vector (xdrs, (char *)objp->oper, 10,
-			sizeof (char), (xdrproc_t) xdr_char))
-			 return FALSE;
 		buf = XDR_INLINE (xdrs, (1 +  3 )* BYTES_PER_XDR_UNIT);
 		if (buf == NULL) {
 			 if (!xdr_int (xdrs, &objp->graph_id))
@@ -60,9 +54,6 @@ xdr_mpc_struct (XDR *xdrs, mpc_struct *objp)
 	 return TRUE;
 	}
 
-	 if (!xdr_vector (xdrs, (char *)objp->oper, 10,
-		sizeof (char), (xdrproc_t) xdr_char))
-		 return FALSE;
 	 if (!xdr_int (xdrs, &objp->graph_id))
 		 return FALSE;
 	 if (!xdr_vector (xdrs, (char *)objp->args, 3,

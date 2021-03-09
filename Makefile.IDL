@@ -19,7 +19,7 @@ TARGETS = IDL.h IDL_xdr.c IDL_clnt.c IDL_svc.c IDL_client.c IDL_server.c
 OBJECTS_CLNT = $(SOURCES_CLNT.c:%.c=%.o) $(TARGETS_CLNT.c:%.c=%.o)
 OBJECTS_SVC = $(SOURCES_SVC.c:%.c=%.o) $(TARGETS_SVC.c:%.c=%.o)
 # Compiler flags 
-
+CC = g++
 CFLAGS += -g 
 LDLIBS += -lnsl
 RPCGENFLAGS = 

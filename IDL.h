@@ -15,7 +15,6 @@ extern "C" {
 
 
 struct mpc_struct {
-	char oper[10];
 	int graph_id;
 	int args[3];
 };
