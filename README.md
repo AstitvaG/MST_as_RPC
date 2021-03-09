@@ -8,3 +8,11 @@ sudo apt-get install rpcbind
 ```
 rpcgen -a -C IDL.x
 ```
+3. Run server with
+```
+sudo ./IDL_server
+```
+4. Run Cients with
+```
+sudo ./IDL_client localhost
+```
