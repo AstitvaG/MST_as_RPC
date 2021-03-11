@@ -92,7 +92,7 @@ void *add_egde_6_svc(mpc_struct *argp, struct svc_req *rqstp)
 {
 	static char *result;
 	// cout << "Adding edge.." << endl;
-	graphs[argp->graph_id].kset.insert({argp->args[2], argp->args[0], argp->args[1]});
+	graphs[argp->graph_id].kset.insert({argp->args[2], argp->args[0]-1, argp->args[1]-1});
 	// cout << "Edge added!" << endl;
 	return (void *)&result;
 }

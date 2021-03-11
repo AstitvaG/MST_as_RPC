@@ -1,7 +1,15 @@
 # MST_as_RPC
 Implementation of Minimum Spanning Tree with Client-Server RPCs
+---
+Submitted By : 
+`Astitva Gupta`\
+`2018101085`
 ### Dependencies
 Tested on Ubuntu 20.04.1
+- `g++`
+```
+sudo apt-get install g++
+```
 - `rpcbind`:
 ```
 sudo apt-get install rpcbind
