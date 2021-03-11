@@ -1,9 +1,11 @@
 add_graph g1 7
+get_mst g1
 add_edge g1 0 1 2
 add_edge g1 0 2 3
 add_edge g1 1 2 6
 add_edge g1 1 3 4
 add_edge g1 1 4 5
+get_mst g2
 add_edge g1 2 5 8
 add_edge g1 2 6 9
 add_edge g1 4 5 1
