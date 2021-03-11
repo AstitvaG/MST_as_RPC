@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 	string oper, graph_id;
 	int type = 0, args[3] = {};
 
-	printf("Started client server...\n");
+	// printf("Started client server...\n");
 
 	while (cin.good())
 	{

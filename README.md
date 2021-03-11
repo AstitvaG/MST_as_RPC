@@ -16,7 +16,11 @@ sudo ./SERVER
 ```
 ### Run Clients with
 ```
-sudo ./CLIENT localhost
+./CLIENT localhost
+```
+or for input redirection
+```
+./CLIENT localhost < MyInputFile.txt
 ```
 Also, in place of `localhost` we could use any IP address where the SERVER binary is executing.
 ### File Structure
