@@ -3,22 +3,23 @@
 
 # Parameters
 
-CLIENT = IDL_client
-SERVER = IDL_server
+CLIENT = MST_client
+SERVER = MST_server
 
 SOURCES_CLNT.c = 
 SOURCES_CLNT.h = 
 SOURCES_SVC.c = 
 SOURCES_SVC.h = 
-SOURCES.x = IDL.x
+SOURCES.x = MST.x
 
-TARGETS_SVC.c = IDL_svc.cpp IDL_server.cpp IDL_xdr.cpp 
-TARGETS_CLNT.c = IDL_clnt.cpp IDL_client.cpp IDL_xdr.cpp 
-TARGETS = IDL.h IDL_xdr.cpp IDL_clnt.cpp IDL_svc.cpp IDL_client.cpp IDL_server.cpp
+TARGETS_SVC.c = MST_svc.cpp MST_server.cpp MST_xdr.cpp 
+TARGETS_CLNT.c = MST_clnt.cpp MST_client.cpp MST_xdr.cpp 
+TARGETS = MST.h MST_xdr.cpp MST_clnt.cpp MST_svc.cpp MST_client.cpp MST_server.cpp
 
 OBJECTS_CLNT = $(SOURCES_CLNT.c:%.cpp=%.o) $(TARGETS_CLNT.c:%.cpp=%.o)
 OBJECTS_SVC = $(SOURCES_SVC.c:%.cpp=%.o) $(TARGETS_SVC.c:%.cpp=%.o)
 # Compiler flags 
+
 CC = g++
 CFLAGS += -g 
 LDLIBS += -lnsl
@@ -26,7 +27,7 @@ RPCGENFLAGS =
 
 # Targets 
 
-all : $(CLIENT) $(SERVER)
+all : $(CLIENT) $(SERVER) clean
 
 $(TARGETS) : $(SOURCES.x) 
 	rpcgen $(RPCGENFLAGS) $(SOURCES.x)
@@ -36,11 +37,12 @@ $(OBJECTS_CLNT) : $(SOURCES_CLNT.c) $(SOURCES_CLNT.h) $(TARGETS_CLNT.c)
 $(OBJECTS_SVC) : $(SOURCES_SVC.c) $(SOURCES_SVC.h) $(TARGETS_SVC.c) 
 
 $(CLIENT) : $(OBJECTS_CLNT) 
-	$(LINK.c) -o $(CLIENT) $(OBJECTS_CLNT) $(LDLIBS) 
+	$(LINK.c) -o CLIENT $(OBJECTS_CLNT) $(LDLIBS) 
 
 $(SERVER) : $(OBJECTS_SVC) 
-	$(LINK.c) -o $(SERVER) $(OBJECTS_SVC) $(LDLIBS)
+	$(LINK.c) -o SERVER $(OBJECTS_SVC) $(LDLIBS)
 
- clean:
-	 $(RM) core $(TARGETS) $(OBJECTS_CLNT) $(OBJECTS_SVC) $(CLIENT) $(SERVER)
+clean:
+	 $(RM) core $(OBJECTS_CLNT) $(OBJECTS_SVC)
+
 

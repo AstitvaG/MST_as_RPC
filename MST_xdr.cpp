@@ -3,7 +3,7 @@
  * It was generated using rpcgen.
  */
 
-#include "IDL.h"
+#include "MST.h"
 
 bool_t
 xdr_mpc_struct (XDR *xdrs, mpc_struct *objp)

@@ -1,6 +1,5 @@
-#include "IDL.h"
 #include <bits/stdc++.h>
-
+#include "MST.h"
 using namespace std;
 
 void compute_6(char *host, mpc_struct struct_args, int type)

@@ -1,4 +1,4 @@
-/*The IDL File  --- name IDL.x*/
+/*The Config File  --- name MST.x*/
 
 /*Structure to hold the values to be used in computation*/
 

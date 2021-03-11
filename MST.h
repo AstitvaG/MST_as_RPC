@@ -3,8 +3,8 @@
  * It was generated using rpcgen.
  */
 
-#ifndef _IDL_H_RPCGEN
-#define _IDL_H_RPCGEN
+#ifndef _MST_H_RPCGEN
+#define _MST_H_RPCGEN
 
 #include <rpc/rpc.h>
 
@@ -62,4 +62,4 @@ extern bool_t xdr_mpc_struct ();
 }
 #endif
 
-#endif /* !_IDL_H_RPCGEN */
+#endif /* !_MST_H_RPCGEN */
