@@ -14,7 +14,7 @@ void compute_6(char *host, mpc_struct struct_args, int type)
 	if (clnt == NULL)
 	{
 		clnt_pcreateerror(host);
-		exit(1);
+		return;
 	}
 	if (type == 1)
 	{
@@ -49,10 +49,14 @@ int main(int argc, char *argv[])
 	string oper, graph_id;
 	int type = 0, args[3] = {};
 
-	printf("Started client server...\n");
+	// printf("Started client server...\n");
 
-	while (1)
+	string line;
+	while (getline(cin, line))
 	{
+		// istringstream(line);
+		cout << "Line::" << line << endl;
+		cin.rdbuf(istringstream(line).rdbuf());
 		cin >> oper >> graph_id;
 		if (oper == "add_graph")
 		{
@@ -65,7 +69,7 @@ int main(int argc, char *argv[])
 			cin >> args[0] >> args[1] >> args[2];
 		}
 		else if (oper == "exit")
-			exit(0);
+			return 0;
 		else if (oper == "get_mst")
 			type = 3;
 		else
@@ -78,6 +82,7 @@ int main(int argc, char *argv[])
 		memcpy(struct_args.args, args, sizeof(args));
 		memcpy(struct_args.graph_id, graph_id.c_str(), sizeof(graph_id.c_str()));
 		compute_6(host, struct_args, type);
+		cout << "Line::" << line << endl;
 	}
-	exit(0);
+	return 0;
 }
