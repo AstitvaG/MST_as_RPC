@@ -18,7 +18,7 @@ sudo ./SERVER
 ```
 sudo ./CLIENT localhost
 ```
-Also, in place of local host we could use any IP address where the SERVER binary is executing.
+Also, in place of `localhost` we could use any IP address where the SERVER binary is executing.
 ### File Structure
 ```
 Assignment_3
