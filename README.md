@@ -37,13 +37,13 @@ The role of the CLIENT side program is to take inputs from the user.
 For this, I check in the while loop if `cin.good()` is true which checks if the input buffer has reached its end or not.
 This takes care of the case of file redirection as well as User Input Prompt.
 ##### Fuctions allowed:
-- add_graph `graph-name` `number-of-nodes`:\
+- <b><strong>add_graph</strong></b> `graph-name` `number-of-nodes`:\
             Adds graph of name `graph-name` to the list of graphs with `number-of-nodes` nodes
-- add_edge `graph-name` `node-1` `node-2` `weight`:\
+- <b><strong>add_edge</strong></b> `graph-name` `node-1` `node-2` `weight`:\
             Adds edge to `graph-name` graph from `node-1` to `node-2` of weight `weight`
-- get_mst `graph-name`:\
+- <b><strong>get_mst</strong></b> `graph-name`:\
             Calculates the Sum of edge weights in Minimum Spanning Tree of `graph-name` graph
-- exit: Exits the user input
+- <b><strong>exit</strong></b>: Exits the user input
 ### File Structure
 ```
 Assignment_3
