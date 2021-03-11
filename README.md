@@ -1,18 +1,20 @@
 # MST_as_RPC
 Implementation of Minimum Spanning Tree with Client-Server RPCs
-1. Install rpcbind
+### Dependencies
+Tested on Ubuntu 20.04.10
+- `rpcbind`:
 ```
 sudo apt-get install rpcbind
 ```
-2. Compile with
+### Compilation
 ```
-rpcgen -a -C IDL.x
+make -f Makefile.MST
 ```
-3. Run server with
+### Run server with
 ```
 sudo ./IDL_server
 ```
-4. Run Cients with
+### Run Cients with
 ```
 sudo ./IDL_client localhost
 ```
