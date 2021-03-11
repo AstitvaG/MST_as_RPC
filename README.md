@@ -18,7 +18,7 @@ sudo ./SERVER
 ```
 ./CLIENT localhost
 ```
-or for input redirection
+or, for input redirection
 ```
 ./CLIENT localhost < MyInputFile.txt
 ```
