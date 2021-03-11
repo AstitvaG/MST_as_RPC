@@ -37,7 +37,7 @@ void compute_6(char *host, mpc_struct struct_args, int type)
 		if (result_3 == (long *)NULL)
 			clnt_perror(clnt, "call failed");
 		clnt_destroy(clnt);
-		cout << "Result = " << *result_3 << endl;
+		cout << *result_3 << endl;
 	}
 }
 
