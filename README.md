@@ -26,23 +26,23 @@ Also, in place of `localhost` we could use any IP address where the SERVER binar
 ### Explanation
 #### Server Side
 The SERVER side program uses `Kruskal's algorithm` to find the Minimum Spanning Tree for the given graph.
-- For each graph, we ifrstly sort the edges present in the graph according to the weights of the edges in ascending order.
+- For each graph, we firstly sort the edges present in the graph according to the weights of the edges in ascending order.
 - After that we take the edges one by one and check if both the parents of the ends of the edge are same or not.
     - If they are same then the edge is neglected.
     - Otherwise, the edge is added to the resultant MST and parents of the ends of edge are made equal
+    - This approach used is called as `Union-Find Algorithm`
 - The resultant output will the sum of edges present in the MST
-- The approach used is called as `Union-Find Algorithm`
 #### Client Side
 The role of the CLIENT side program is to take inputs from the user.
 For this, I check in the while loop if `cin.good()` is true which checks if the input buffer has reached its end or not.
 This takes care of the case of file redirection as well as User Input Prompt.
 ##### Fuctions allowed:
 - add_graph `graph-name` `number-of-nodes`:\
-            Adds graph of name `graph-name` to the list of graphs with `number-of-nodes` nodes
+    Adds graph of name `graph-name` to the list of graphs with `number-of-nodes` nodes
 - add_edge `graph-name` `node-1` `node-2` `weight`:\
-            Adds edge to `graph-name` graph from `node-1` to `node-2` of weight `weight`
+    Adds edge to `graph-name` graph from `node-1` to `node-2` of weight `weight`
 - get_mst `graph-name`:\
-            Calculates the Sum of edge weights in Minimum Spanning Tree of `graph-name` graph
+    Calculates the Sum of edge weights in Minimum Spanning Tree of `graph-name` graph
 - exit: Exits the user input
 ### File Structure
 ```
