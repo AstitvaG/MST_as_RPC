@@ -43,7 +43,7 @@ This takes care of the case of file redirection as well as User Input Prompt.
         Adds edge to <graph-name> graph from <node-1> to <node-2> of weight <weight>
 - get_mst <graph-name>:\
         Calculates the Sum of edge weights in Minimum Spanning Tree of <graph-name> graph
--exit: Exits the user input
+- exit: Exits the user input
 ### File Structure
 ```
 Assignment_3
